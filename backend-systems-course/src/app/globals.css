@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #f8f4e9;
+  --color-paper-deep: #eee8d8;
+  --color-ink: #2e312f;
+  --color-muted-ink: #77766f;
+  --color-coral: #d86a50;
+  --color-sage: #789782;
+  --color-sun: #eab957;
+  --color-sky: #8cb4bb;
+  --color-line: #d9d2c1;
+  --color-ring: #d86a50;
+  --font-sans: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Trebuchet MS", "Aptos", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f8f4e9;
+  --ink: #2e312f;
+  --line: #d9d2c1;
+  --coral: #d86a50;
+  --sage: #789782;
+  --sun: #eab957;
+  --sky: #8cb4bb;
+  --ring: #d86a50;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 14% 18%, rgb(255 255 255 / 58%) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 72% 64%, rgb(104 91 65 / 5%) 0 1px, transparent 2px),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgb(91 104 95 / 4%) 31px 32px);
+  background-size: 21px 23px, 29px 31px, auto;
+  font-family: var(--font-sans);
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+::selection { color: white; background: var(--coral); }
+
+.paper-card {
+  background: rgb(255 253 247 / 88%);
+  border: 1px solid rgb(86 77 58 / 15%);
+  box-shadow: 0 3px 0 rgb(46 49 47 / 5%), 0 12px 28px rgb(75 66 48 / 6%);
+}
+.hand-underline { position: relative; display: inline-block; }
+.hand-underline::after {
+  content: ""; position: absolute; left: -1%; right: -1%; bottom: -5px; height: 7px;
+  border-top: 2px solid var(--coral); border-radius: 50%; transform: rotate(-1.2deg);
+}
+.paper-grid {
+  background-image: linear-gradient(rgb(99 129 124 / 9%) 1px, transparent 1px), linear-gradient(90deg, rgb(99 129 124 / 9%) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.scribble-border { border: 1.5px dashed rgb(46 49 47 / 28%); }
+.handwritten { font-family: "Comic Sans MS", "Bradley Hand", cursive; }
+.sidebar-scroll { scrollbar-width: thin; scrollbar-color: #d8d0bf transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
